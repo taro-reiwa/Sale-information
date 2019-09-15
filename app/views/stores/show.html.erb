@@ -1,0 +1,29 @@
+<% if logged_in? %>
+    <div class="col-sm-6">
+      <h3><%= @store.name %></h3>
+      <div class="offset-1"><%= @store.prefecture %><%= @store.city %><%= @store.address %></div>
+    </div>
+    <div class="dropdown-divider"></div>
+
+<% $sale = @store.id %>
+
+ 
+  <div class="row">
+    <aside class="col-sm-4">
+      <%= form_with(model: @sale, local: true) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+        <div class="form-group">
+          <%= f.text_area :content, class: 'form-control', rows: 5 %>
+        </div>
+        <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+      <% end %>
+    </aside>
+    <div class="col-sm-8">
+      
+      <%= render 'sales/sales', sales: @sales %>
+    
+    </div>
+  </div>
+<% else %>
+    <% render 'toppages/index' %>
+<% end %>

@@ -1,0 +1,24 @@
+<ul class="list-unstyled">
+  <% sales.each do |sale| %>
+    <li class="media mb-3">
+      <img class="mr-2 rounded" src="<%= gravatar_url(sale.user, { size: 50 }) %>" alt="">
+      <div class="media-body">
+        <div>
+          <%= link_to sale.user.name, user_path(sale.user) %> <span class="text-muted">posted at <%= sale.created_at %></span>
+        </div>
+        <div>
+          <p><%= sale.content %></p>
+        </div>
+          <div>
+          <% if current_user == sale.user %>
+            <%= link_to "Delete", sale, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+          <% end %>
+        </div>
+        
+        <div class="dropdown-divider"></div>
+        
+      </div>
+    </li>
+  <% end %>
+  <%= paginate sales %>
+</ul>

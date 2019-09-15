@@ -1,0 +1,26 @@
+
+[1mFrom:[0m /home/ec2-user/environment/sale-information/app/controllers/sales_controller.rb @ line 15 SalesController#create:
+
+     [1;34m5[0m: [32mdef[0m [1;34mcreate[0m
+     [1;34m6[0m:   [1;34m#binding.pry[0m
+     [1;34m7[0m:   [1;34m#@store = $sale[0m
+     [1;34m8[0m:   [1;34m#@store = Store.find(params[:id])[0m
+     [1;34m9[0m:   @sale = current_user.sales.build(sale_params)
+    [1;34m10[0m:   [1;34m#@sale.store_id = $sale[0m
+    [1;34m11[0m:   @sale.store_id = @sale
+    [1;34m12[0m: 
+    [1;34m13[0m:   [1;34m#@sale = current_user.sales.build(store_id: :$sale)[0m
+    [1;34m14[0m:   binding.pry
+ => [1;34m15[0m:   [32mif[0m @sale.save
+    [1;34m16[0m:     flash[[33m:success[0m] = [31m[1;31m'[0m[31m情報を投稿しました。[1;31m'[0m[31m[0m
+    [1;34m17[0m:     redirect_to root_url
+    [1;34m18[0m:   [32melse[0m
+    [1;34m19[0m:     @sale = current_user.sales.order([35mid[0m: [33m:desc[0m).page(params[[33m:page[0m])
+    [1;34m20[0m:     flash.now[[33m:danger[0m] = [31m[1;31m'[0m[31m情報の投稿に失敗しました。[1;31m'[0m[31m[0m
+    [1;34m21[0m:     [1;34m#redirect_back(fallback_location: root_path)[0m
+    [1;34m22[0m:     render [31m[1;31m'[0m[31mtoppages/index[1;31m'[0m[31m[0m
+    [1;34m23[0m:     [1;34m#render 'stores/create'[0m
+    [1;34m24[0m:     [1;34m#redirect_to root_url[0m
+    [1;34m25[0m:   [32mend[0m
+    [1;34m26[0m: [32mend[0m
+
